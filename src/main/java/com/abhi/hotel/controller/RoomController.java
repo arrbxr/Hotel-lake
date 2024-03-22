@@ -47,7 +47,7 @@ public class RoomController {
         return roomService.getAllRoomTypes();
     }
 
-    @GetMapping("/all")
+    @GetMapping("/all-rooms")
     public ResponseEntity<List<RoomResponse>> getAllRooms() throws SQLException {
         List<Room> rooms = roomService.getAllRooms();
         List<RoomResponse> roomResponses = new ArrayList<>();
@@ -64,6 +64,14 @@ public class RoomController {
         }
 
         return new ResponseEntity<>(roomResponses, HttpStatus.OK);
+    }
+
+
+    @DeleteMapping("/delete/room/{roomId}")
+    public ResponseEntity<Void> deleteRoom(@PathVariable Long roomId){
+        roomService.deleteRoom(roomId);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     private RoomResponse getRoomResponse(Room room) {
