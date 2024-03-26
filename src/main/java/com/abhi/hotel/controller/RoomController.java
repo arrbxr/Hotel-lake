@@ -6,7 +6,7 @@ import com.abhi.hotel.model.BookedRoom;
 import com.abhi.hotel.model.Room;
 import com.abhi.hotel.response.BookingResponse;
 import com.abhi.hotel.response.RoomResponse;
-import com.abhi.hotel.service.IBookedRoomService;
+import com.abhi.hotel.service.IBookingService;
 import com.abhi.hotel.service.IRoomService;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.sql.rowset.serial.SerialBlob;
-import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Blob;
@@ -31,7 +30,7 @@ import java.util.Optional;
 public class RoomController {
 
     private final IRoomService roomService;
-    private final IBookedRoomService bookedRoomService;
+    private final IBookingService bookedRoomService;
 
     @PostMapping("/add/new-room")
     public ResponseEntity<RoomResponse> addNewRoom(

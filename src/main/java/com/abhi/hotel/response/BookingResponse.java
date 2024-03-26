@@ -5,8 +5,8 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class BookingResponse {
     private Long id;
     private LocalDate checkInDate;
